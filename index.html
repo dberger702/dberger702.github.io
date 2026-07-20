@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>OnlyBands — the highest-paying music platform</title>
+<meta name="description" content="OnlyBands pays artists more than anyone, publicly. Stream a full catalog of independent music, buy tracks direct, and see exactly where every dollar goes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%23fa2c56'/><g fill='white'><rect x='24' y='42' width='8.5' height='16' rx='4.25'/><rect x='37' y='33' width='8.5' height='34' rx='4.25'/><rect x='50' y='24' width='8.5' height='52' rx='4.25'/><rect x='63' y='33' width='8.5' height='34' rx='4.25'/><rect x='76' y='42' width='8.5' height='16' rx='4.25'/></g></svg>">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 100 100" width="30" height="30" aria-label="OnlyBands">
+        <defs>
+          <linearGradient id="lbg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ff3d6e"/><stop offset="0.55" stop-color="#fa2c56"/><stop offset="1" stop-color="#7a1fa2"/>
+          </linearGradient>
+        </defs>
+        <rect x="2" y="2" width="96" height="96" rx="26" fill="url(#lbg)"/>
+        <g fill="#fff">
+          <rect x="24" y="42" width="8.5" height="16" rx="4.25"/>
+          <rect x="37" y="33" width="8.5" height="34" rx="4.25"/>
+          <rect x="50" y="24" width="8.5" height="52" rx="4.25"/>
+          <rect x="63" y="33" width="8.5" height="34" rx="4.25"/>
+          <rect x="76" y="42" width="8.5" height="16" rx="4.25"/>
+        </g>
+      </svg>
+      <span>Only<b>Bands</b></span>
+    </div>
+    <nav class="navsec" id="nav">
+      <button class="navitem" data-route="home"><span class="ic">⌂</span> Home</button>
+      <button class="navitem" data-route="browse"><span class="ic">◍</span> Browse</button>
+      <button class="navitem" data-route="concerts"><span class="ic">◈</span> Live</button>
+      <button class="navitem" data-route="subscribe"><span class="ic">✦</span> Subscribe</button>
+      <button class="navitem" data-route="studio"><span class="ic">▤</span> Artist Studio</button>
+      <button class="navitem" data-route="transparency"><span class="ic">◉</span> Transparency</button>
+      <button class="navitem" data-route="contract"><span class="ic">§</span> Artist Contract</button>
+    </nav>
+    <div class="navsec">
+      <h4>Your Library</h4>
+      <button class="navitem" data-route="playlists"><span class="ic">≣</span> Playlists</button>
+      <button class="navitem" data-route="library"><span class="ic">♥</span> Favorites</button>
+      <button class="navitem" data-route="activity"><span class="ic">◔</span> Activity</button>
+      <button class="navitem" data-route="purchases"><span class="ic">↓</span> Purchases</button>
+    </div>
+    <div class="navsec side-artists">
+      <h4>Artists</h4>
+      <div id="sideArtists"></div>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="topbar" id="topbar">
+      <button class="menubtn" id="menuBtn" title="Menu">☰</button>
+      <div class="navbtns">
+        <button id="back" title="Back">‹</button>
+        <button id="fwd" title="Forward">›</button>
+      </div>
+      <div class="search">
+        <span class="si">⌕</span>
+        <input id="search" type="text" placeholder="Search artists, songs, albums" autocomplete="off">
+      </div>
+      <div class="spacer"></div>
+      <button class="cartbtn" id="bellBtn" title="Activity">◔<span class="cart-count" id="bellCount">0</span></button>
+      <button class="cartbtn" id="cartBtn" title="Cart">🛍<span class="cart-count" id="cartCount">0</span></button>
+      <button class="cartbtn acct" id="accountBtn" title="Account"></button>
+      <button class="btn-sub" data-route="subscribe">Start free — $4.99/mo</button>
+    </div>
+    <div id="view" class="view"></div>
+  </main>
+  <div class="scrim" id="scrim"></div>
+
+  <div class="playerbar">
+    <div class="pb-now" id="pbNow"></div>
+    <div class="pb-center">
+      <div class="pb-ctrls">
+        <button id="shuffle" title="Shuffle" aria-label="Shuffle"></button>
+        <button id="prev" title="Previous" aria-label="Previous"></button>
+        <button class="pp" id="playpause" title="Play" aria-label="Play"></button>
+        <button id="next" title="Next" aria-label="Next"></button>
+        <button id="repeat" title="Repeat" aria-label="Repeat"></button>
+      </div>
+      <div class="pb-prog">
+        <span class="tm" id="curTime">0:00</span>
+        <div class="scrub" id="scrub"><div class="done" id="scrubDone"></div><div class="knob" id="scrubKnob"></div></div>
+        <span class="tm" id="durTime">0:00</span>
+      </div>
+    </div>
+    <div class="pb-right">
+      <div class="capchip" id="capChip" title="Monthly listening allowance">
+        <div class="ring"><i id="capNum">0</i></div>
+        <span id="capLabel">hrs left</span>
+      </div>
+      <div class="qwrap">
+        <button id="qualityBtn" class="qbtn" title="Audio quality"><span id="qualityLabel">HD</span></button>
+        <div class="qmenu" id="qualityMenu"></div>
+      </div>
+      <button id="queueBtn" title="Queue">☰</button>
+      <div class="vol">
+        <button id="mute" title="Mute">🔊</button>
+        <div class="track" id="volTrack"><div class="done" id="volDone"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="modal"></div>
+
+<aside class="queue" id="queue">
+  <h3>Up Next <button id="closeQueue">×</button></h3>
+  <div class="qlist" id="qlist"></div>
+</aside>
+
+<aside class="queue cart" id="cart">
+  <h3>Cart <button id="closeCart">×</button></h3>
+  <div class="qlist" id="cartList"></div>
+  <div class="cartfoot" id="cartFoot">
+    <div class="cartsum"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    <div class="cartdisc" id="cartDisc"></div>
+    <button class="cartco" id="cartCheckout">Checkout</button>
+    <div class="cartnote">Merch is artist-fulfilled. Demo checkout — no charge.</div>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+<audio id="audio"></audio>
+
+<script src="catalog.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

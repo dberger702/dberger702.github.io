@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#ff2e88"/><stop offset="0.55" stop-color="#7a1fa2"/><stop offset="1" stop-color="#1a1140"/>
+</linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.4" r="0.7">
+<stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+<filter id="b"><feGaussianBlur stdDeviation="26"/></filter>
+</defs>
+<rect width="600" height="600" fill="url(#g)"/><path d="M0 120 Q150 60 300 120 T600 120" stroke="#ffffff" stroke-opacity="0.06" fill="none" stroke-width="3"/><path d="M0 198 Q150 138 300 198 T600 198" stroke="#ffffff" stroke-opacity="0.09" fill="none" stroke-width="4"/><path d="M0 272 Q150 212 300 272 T600 272" stroke="#ffffff" stroke-opacity="0.12" fill="none" stroke-width="5"/><path d="M0 336 Q150 276 300 336 T600 336" stroke="#ffffff" stroke-opacity="0.15" fill="none" stroke-width="6"/><path d="M0 411 Q150 351 300 411 T600 411" stroke="#ffffff" stroke-opacity="0.18" fill="none" stroke-width="7"/><path d="M0 475 Q150 415 300 475 T600 475" stroke="#ffffff" stroke-opacity="0.21" fill="none" stroke-width="8"/><rect width="600" height="600" fill="url(#glow)"/></svg>
